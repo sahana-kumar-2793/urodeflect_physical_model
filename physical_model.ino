@@ -25,32 +25,28 @@ void setup() {
 void loop() {
   // read the sensor value:
   int contractionOneReading = analogRead(contractionPotOne);
-//  int contractionTwoReading = analogRead(contractionPotTwo);
+  int contractionTwoReading = analogRead(contractionPotTwo);
 //  int flowReading = analogRead(flowPot);
 
   // map it to a range from 0 to 100:
   int motorSpeedContractionOne = map(contractionOneReading, 0, 1023, 0, 100);
-//  int motorSpeedContractionTwo = map(contractionTwoReading, 0, 1023, 0, 100);
-//  int motorSpeedFlow = map(flowReading, 0, 1023, 0, 100);
+  int motorSpeedContractionTwo = map(contractionTwoReading, 0, 1023, 0, 100);
+  int motorSpeedFlow = map(flowReading, 0, 1023, 0, 100);
 
   // set the motor speed:
-  if (motorSpeedContractionOne > 0) {
-//    contractionOne.setSpeed(motorSpeedContractionOne);
-    contractionOne.setSpeed(10);
+  if (motorSpeedContractionOne > 0 & motorSpeedContractionTwo > 0) {
+    contractionOne.setSpeed(motorSpeedContractionOne);
+    contractionTwo.setSpeed(motorSpeedContractionTwo);
 
     // step 1/100 of a revolution:
     contractionOne.step(stepsPerRevolution / 100);
+    contractionTwo.step(stepsPerRevolution / 100);
+
   }
 
-//  if (motorSpeedContractionTwo > 0) {
-//    contractionTwo.setSpeed(motorSpeedContractionTwo);
-//    // step 1/100 of a revolution:
-//    contractionTwo.step(stepsPerRevolution / 100);
-//  }
-//
-//  if (motorSpeedContractionOne > 0) {
-//    contractionOne.setSpeed(motorSpeedFlow);
-//    // step 1/100 of a revolution:
-//    contractionOne.step(stepsPerRevolution / 100);
-//  }
+  if (motorSpeedContractionTwo > 0) {
+    // step 1/100 of a revolution:
+  }
+
+ 
 }
