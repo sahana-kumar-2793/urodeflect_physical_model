@@ -42,7 +42,7 @@ def read_line(port_obj):
 
 
 def init_graph():
-    plt.title("PID Control Reading: %s" % cur_var.get_name())
+    plt.title("Sensor Reading: %s" % cur_var.get_name())
     plt.xlabel("Time(s)")
     plt.ylabel(cur_var.get_y_label())
     axes = plt.gca()
