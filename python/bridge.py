@@ -5,18 +5,18 @@ import time
 def onVoltageRatioChange(self, voltageRatio):
     print("VoltageRatio: " + str(voltageRatio))
 
-    def main():
-        voltageRatioInput0 = VoltageRatioInput()
+def main():
+    voltageRatioInput0 = VoltageRatioInput()
 
-        voltageRatioInput0.setOnVoltageRatioChangeHandler(onVoltageRatioChange)
+    voltageRatioInput0.setOnVoltageRatioChangeHandler(onVoltageRatioChange)
 
-        voltageRatioInput0.openWaitForAttachment(5000)
+    voltageRatioInput0.openWaitForAttachment(5000)
 
-        try:
+    try:
         input("Press Enter to Stop\n")
-        except (Exception, KeyboardInterrupt):
+    except (Exception, KeyboardInterrupt):
         pass
 
     voltageRatioInput0.close()
 
-    main()
+main()
